@@ -77,21 +77,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "AI Workplace Productivity Assistant" },
+      {
+        name: "description",
+        content: "Write emails, research faster, and solve workplace tasks with an AI productivity assistant.",
+      },
+      { name: "author", content: "AI Workplace Productivity Assistant" },
+      { property: "og:title", content: "AI Workplace Productivity Assistant" },
+      {
+        property: "og:description",
+        content: "A focused AI workspace for email, research, and everyday professional tasks.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
   shellComponent: RootShell,
