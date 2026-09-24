@@ -78,7 +78,8 @@ export const Route = createFileRoute("/")({
       { title: "AI Workplace Productivity Assistant" },
       {
         name: "description",
-        content: "Create polished emails, research faster, and get practical workplace support with AI.",
+        content:
+          "Create polished emails, research faster, and get practical workplace support with AI.",
       },
       { property: "og:title", content: "AI Workplace Productivity Assistant" },
       {
@@ -113,7 +114,8 @@ const featureMeta = {
   chat: {
     eyebrow: "On-demand support",
     title: "AI Workplace Chat",
-    description: "Think through plans, decisions, writing, and everyday work with a focused assistant.",
+    description:
+      "Think through plans, decisions, writing, and everyday work with a focused assistant.",
   },
 };
 
@@ -138,11 +140,19 @@ function Index() {
             <div className="flex min-w-0 items-center gap-3">
               <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
                 <SheetTrigger asChild>
-                  <Button aria-label="Open navigation" className="lg:hidden" size="icon" variant="outline">
+                  <Button
+                    aria-label="Open navigation"
+                    className="lg:hidden"
+                    size="icon"
+                    variant="outline"
+                  >
                     <Menu />
                   </Button>
                 </SheetTrigger>
-                <SheetContent className="w-[290px] border-sidebar-border bg-sidebar p-0 text-sidebar-foreground" side="left">
+                <SheetContent
+                  className="w-[290px] border-sidebar-border bg-sidebar p-0 text-sidebar-foreground"
+                  side="left"
+                >
                   <SheetHeader className="sr-only">
                     <SheetTitle>Workspace navigation</SheetTitle>
                     <SheetDescription>Choose a productivity tool.</SheetDescription>
@@ -151,7 +161,9 @@ function Index() {
                 </SheetContent>
               </Sheet>
               <div className="min-w-0">
-                <p className="truncate text-xs font-semibold uppercase text-muted-foreground">AI workspace</p>
+                <p className="truncate text-xs font-semibold uppercase text-muted-foreground">
+                  AI workspace
+                </p>
                 <p className="truncate text-sm font-semibold">
                   {view === "overview" ? "Productivity hub" : featureMeta[view].title}
                 </p>
@@ -185,7 +197,11 @@ function Sidebar({ active, onSelect }: { active: View; onSelect: (view: View) =>
   return (
     <div className="flex h-full min-h-screen flex-col p-4">
       <div className="flex items-center gap-3 px-2 py-3">
-        <img alt="AI Workplace Productivity Assistant" className="size-10 rounded-md bg-sidebar-accent object-contain p-1" src={logo} />
+        <img
+          alt="AI Workplace Productivity Assistant"
+          className="size-10 rounded-md bg-sidebar-accent object-contain p-1"
+          src={logo}
+        />
         <div className="min-w-0">
           <p className="text-xs font-semibold uppercase text-sidebar-muted">AI Workplace</p>
           <p className="truncate text-sm font-bold">Productivity Assistant</p>
@@ -257,7 +273,8 @@ function Overview({ onSelect }: { onSelect: (view: View) => void }) {
             Move important work forward.
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
-            Draft clearer communication, turn information into decisions, and get practical support without leaving your workspace.
+            Draft clearer communication, turn information into decisions, and get practical support
+            without leaving your workspace.
           </p>
         </div>
       </div>
@@ -266,7 +283,10 @@ function Overview({ onSelect }: { onSelect: (view: View) => void }) {
         {tools.map((tool) => {
           const Icon = tool.icon;
           return (
-            <Card className="group rounded-lg shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" key={tool.id}>
+            <Card
+              className="group rounded-lg shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              key={tool.id}
+            >
               <CardHeader>
                 <div className="mb-3 flex size-10 items-center justify-center rounded-md bg-secondary text-primary">
                   <Icon />
@@ -301,7 +321,8 @@ function Overview({ onSelect }: { onSelect: (view: View) => void }) {
         <div className="border-l-0 md:border-l md:pl-6">
           <p className="text-sm font-semibold">Built for focused work</p>
           <p className="mt-2 text-sm leading-6 text-muted-foreground">
-            Your inputs shape every result. The assistant does not rely on canned workplace responses.
+            Your inputs shape every result. The assistant does not rely on canned workplace
+            responses.
           </p>
         </div>
       </div>
@@ -309,7 +330,11 @@ function Overview({ onSelect }: { onSelect: (view: View) => void }) {
   );
 }
 
-function PageHeading({ eyebrow, title, description }: (typeof featureMeta)[keyof typeof featureMeta]) {
+function PageHeading({
+  eyebrow,
+  title,
+  description,
+}: (typeof featureMeta)[keyof typeof featureMeta]) {
   return (
     <div className="mb-7 max-w-3xl">
       <p className="text-xs font-bold uppercase text-primary">{eyebrow}</p>
@@ -321,7 +346,12 @@ function PageHeading({ eyebrow, title, description }: (typeof featureMeta)[keyof
 
 function EmailGenerator() {
   const createEmail = useServerFn(generateEmail);
-  const [form, setForm] = useState({ recipient: "", purpose: "", keyPoints: "", tone: "Formal" as Tone });
+  const [form, setForm] = useState({
+    recipient: "",
+    purpose: "",
+    keyPoints: "",
+    tone: "Formal" as Tone,
+  });
   const [output, setOutput] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -346,20 +376,40 @@ function EmailGenerator() {
   return (
     <div className="grid gap-6 xl:grid-cols-[minmax(320px,0.8fr)_minmax(0,1.2fr)]">
       <Card className="rounded-lg shadow-sm">
-        <CardHeader><CardTitle className="text-base">Email brief</CardTitle></CardHeader>
+        <CardHeader>
+          <CardTitle className="text-base">Email brief</CardTitle>
+        </CardHeader>
         <CardContent className="space-y-5">
           <Field label="Recipient or context" htmlFor="recipient">
-            <Input id="recipient" onChange={(event) => setForm({ ...form, recipient: event.target.value })} placeholder="e.g. Project sponsor after a delayed milestone" value={form.recipient} />
+            <Input
+              id="recipient"
+              onChange={(event) => setForm({ ...form, recipient: event.target.value })}
+              placeholder="e.g. Project sponsor after a delayed milestone"
+              value={form.recipient}
+            />
           </Field>
           <Field label="Purpose" htmlFor="purpose">
-            <Input id="purpose" onChange={(event) => setForm({ ...form, purpose: event.target.value })} placeholder="e.g. Share an updated delivery plan" value={form.purpose} />
+            <Input
+              id="purpose"
+              onChange={(event) => setForm({ ...form, purpose: event.target.value })}
+              placeholder="e.g. Share an updated delivery plan"
+              value={form.purpose}
+            />
           </Field>
           <Field label="Key points" htmlFor="key-points">
-            <Textarea className="min-h-32 resize-y" id="key-points" onChange={(event) => setForm({ ...form, keyPoints: event.target.value })} placeholder="Add the facts, dates, requests, and outcome you need…" value={form.keyPoints} />
+            <Textarea
+              className="min-h-32 resize-y"
+              id="key-points"
+              onChange={(event) => setForm({ ...form, keyPoints: event.target.value })}
+              placeholder="Add the facts, dates, requests, and outcome you need…"
+              value={form.keyPoints}
+            />
           </Field>
           <Field label="Tone" htmlFor="tone">
             <Select onValueChange={(tone: Tone) => setForm({ ...form, tone })} value={form.tone}>
-              <SelectTrigger id="tone"><SelectValue /></SelectTrigger>
+              <SelectTrigger id="tone">
+                <SelectValue />
+              </SelectTrigger>
               <SelectContent>
                 <SelectItem value="Formal">Formal</SelectItem>
                 <SelectItem value="Friendly">Friendly</SelectItem>
@@ -368,25 +418,54 @@ function EmailGenerator() {
             </Select>
           </Field>
           <Button className="w-full" disabled={!canGenerate || loading} onClick={submit}>
-            {loading ? <><RefreshCw className="animate-spin" /> Writing email…</> : <><WandSparkles /> Generate email</>}
+            {loading ? (
+              <>
+                <RefreshCw className="animate-spin" /> Writing email…
+              </>
+            ) : (
+              <>
+                <WandSparkles /> Generate email
+              </>
+            )}
           </Button>
           {error && <InlineError message={error} />}
         </CardContent>
       </Card>
 
       <OutputPanel
-        actions={output ? <>
-          <Button onClick={async () => { await navigator.clipboard.writeText(output); setCopied(true); window.setTimeout(() => setCopied(false), 1500); }} size="sm" variant="outline">
-            {copied ? <Check /> : <Copy />} {copied ? "Copied" : "Copy"}
-          </Button>
-          <Button disabled={loading} onClick={submit} size="sm" variant="outline"><RefreshCw /> Regenerate</Button>
-        </> : null}
+        actions={
+          output ? (
+            <>
+              <Button
+                onClick={async () => {
+                  await navigator.clipboard.writeText(output);
+                  setCopied(true);
+                  window.setTimeout(() => setCopied(false), 1500);
+                }}
+                size="sm"
+                variant="outline"
+              >
+                {copied ? <Check /> : <Copy />} {copied ? "Copied" : "Copy"}
+              </Button>
+              <Button disabled={loading} onClick={submit} size="sm" variant="outline">
+                <RefreshCw /> Regenerate
+              </Button>
+            </>
+          ) : null
+        }
         emptyIcon={<Mail />}
         emptyText="Complete the email brief to create your first draft."
         loading={loading}
         title="Generated email"
       >
-        {output && <Textarea aria-label="Generated email" className="min-h-[420px] resize-y border-0 bg-panel p-5 leading-7 shadow-none focus-visible:ring-1" onChange={(event) => setOutput(event.target.value)} value={output} />}
+        {output && (
+          <Textarea
+            aria-label="Generated email"
+            className="min-h-[420px] resize-y border-0 bg-panel p-5 leading-7 shadow-none focus-visible:ring-1"
+            onChange={(event) => setOutput(event.target.value)}
+            value={output}
+          />
+        )}
       </OutputPanel>
     </div>
   );
@@ -416,24 +495,56 @@ function ResearchAssistant() {
   return (
     <div className="grid gap-6 xl:grid-cols-[minmax(320px,0.75fr)_minmax(0,1.25fr)]">
       <Card className="h-fit rounded-lg shadow-sm">
-        <CardHeader><CardTitle className="text-base">Research source</CardTitle></CardHeader>
+        <CardHeader>
+          <CardTitle className="text-base">Research source</CardTitle>
+        </CardHeader>
         <CardContent className="space-y-4">
           <div>
             <Label htmlFor="source">Topic, article text, or website URL</Label>
-            <Textarea className="mt-2 min-h-64 resize-y" id="source" onChange={(event) => setSource(event.target.value)} placeholder="Paste an article, enter a topic, or add a URL…" value={source} />
+            <Textarea
+              className="mt-2 min-h-64 resize-y"
+              id="source"
+              onChange={(event) => setSource(event.target.value)}
+              placeholder="Paste an article, enter a topic, or add a URL…"
+              value={source}
+            />
           </div>
           <Button className="w-full" disabled={!source.trim() || loading} onClick={submit}>
-            {loading ? <><RefreshCw className="animate-spin" /> Analyzing…</> : <><FileSearch /> Analyze content</>}
+            {loading ? (
+              <>
+                <RefreshCw className="animate-spin" /> Analyzing…
+              </>
+            ) : (
+              <>
+                <FileSearch /> Analyze content
+              </>
+            )}
           </Button>
           {error && <InlineError message={error} />}
         </CardContent>
       </Card>
 
       <OutputPanel
-        actions={hasResult ? <>
-          <Button onClick={() => navigator.clipboard.writeText(`${result.summary}\n\n${result.insights}\n\n${result.recommendations}`)} size="sm" variant="outline"><Copy /> Copy all</Button>
-          <Button disabled={loading} onClick={submit} size="sm" variant="outline"><RefreshCw /> Regenerate</Button>
-        </> : null}
+        actions={
+          hasResult ? (
+            <>
+              <Button
+                onClick={() =>
+                  navigator.clipboard.writeText(
+                    `${result.summary}\n\n${result.insights}\n\n${result.recommendations}`,
+                  )
+                }
+                size="sm"
+                variant="outline"
+              >
+                <Copy /> Copy all
+              </Button>
+              <Button disabled={loading} onClick={submit} size="sm" variant="outline">
+                <RefreshCw /> Regenerate
+              </Button>
+            </>
+          ) : null
+        }
         emptyIcon={<FileSearch />}
         emptyText="Add source material to reveal the essentials and next steps."
         loading={loading}
@@ -441,9 +552,24 @@ function ResearchAssistant() {
       >
         {hasResult && (
           <div className="space-y-4">
-            <ResearchSection icon={<Clipboard />} label="Summary" onChange={(summary) => setResult({ ...result, summary })} value={result.summary} />
-            <ResearchSection icon={<Lightbulb />} label="Key insights" onChange={(insights) => setResult({ ...result, insights })} value={result.insights} />
-            <ResearchSection icon={<Target />} label="Recommendations" onChange={(recommendations) => setResult({ ...result, recommendations })} value={result.recommendations} />
+            <ResearchSection
+              icon={<Clipboard />}
+              label="Summary"
+              onChange={(summary) => setResult({ ...result, summary })}
+              value={result.summary}
+            />
+            <ResearchSection
+              icon={<Lightbulb />}
+              label="Key insights"
+              onChange={(insights) => setResult({ ...result, insights })}
+              value={result.insights}
+            />
+            <ResearchSection
+              icon={<Target />}
+              label="Recommendations"
+              onChange={(recommendations) => setResult({ ...result, recommendations })}
+              value={result.recommendations}
+            />
           </div>
         )}
       </OutputPanel>
@@ -451,14 +577,39 @@ function ResearchAssistant() {
   );
 }
 
-function ResearchSection({ icon, label, value, onChange }: { icon: ReactNode; label: string; value: string; onChange: (value: string) => void }) {
+function ResearchSection({
+  icon,
+  label,
+  value,
+  onChange,
+}: {
+  icon: ReactNode;
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+}) {
   return (
     <section className="rounded-md border bg-panel p-4">
       <div className="mb-3 flex items-center justify-between gap-3">
-        <h3 className="flex items-center gap-2 text-sm font-semibold text-panel-foreground"><span className="text-primary">{icon}</span>{label}</h3>
-        <Button aria-label={`Copy ${label}`} onClick={() => navigator.clipboard.writeText(value)} size="icon-sm" variant="ghost"><Copy /></Button>
+        <h3 className="flex items-center gap-2 text-sm font-semibold text-panel-foreground">
+          <span className="text-primary">{icon}</span>
+          {label}
+        </h3>
+        <Button
+          aria-label={`Copy ${label}`}
+          onClick={() => navigator.clipboard.writeText(value)}
+          size="icon-sm"
+          variant="ghost"
+        >
+          <Copy />
+        </Button>
       </div>
-      <Textarea aria-label={label} className="min-h-32 resize-y border-0 bg-transparent p-0 leading-6 shadow-none focus-visible:ring-0" onChange={(event) => onChange(event.target.value)} value={value} />
+      <Textarea
+        aria-label={label}
+        className="min-h-32 resize-y border-0 bg-transparent p-0 leading-6 shadow-none focus-visible:ring-0"
+        onChange={(event) => onChange(event.target.value)}
+        value={value}
+      />
     </section>
   );
 }
@@ -479,24 +630,46 @@ function WorkplaceChat() {
     <Card className="flex h-[min(720px,calc(100vh-190px))] min-h-[560px] flex-col overflow-hidden rounded-lg shadow-sm">
       <div className="flex items-center justify-between border-b px-4 py-3 md:px-6">
         <div className="flex items-center gap-3">
-          <img alt="Workplace assistant" className="size-9 rounded-md bg-secondary object-contain p-1" src={logo} />
-          <div><p className="text-sm font-semibold">Workplace Assistant</p><p className="text-xs text-muted-foreground">Ready to help you think and create</p></div>
+          <img
+            alt="Workplace assistant"
+            className="size-9 rounded-md bg-secondary object-contain p-1"
+            src={logo}
+          />
+          <div>
+            <p className="text-sm font-semibold">Workplace Assistant</p>
+            <p className="text-xs text-muted-foreground">Ready to help you think and create</p>
+          </div>
         </div>
-        <Badge variant="secondary"><span className="mr-1.5 inline-block size-1.5 rounded-full bg-success" />Online</Badge>
+        <Badge variant="secondary">
+          <span className="mr-1.5 inline-block size-1.5 rounded-full bg-success" />
+          Online
+        </Badge>
       </div>
 
       <Conversation className="min-h-0 bg-card">
         <ConversationContent className="mx-auto w-full max-w-4xl gap-6 px-4 py-7 md:px-8">
           {messages.length === 0 ? (
             <ConversationEmptyState className="min-h-80">
-              <img alt="AI Workplace Productivity Assistant" className="size-16 rounded-lg bg-secondary object-contain p-2" src={logo} />
+              <img
+                alt="AI Workplace Productivity Assistant"
+                className="size-16 rounded-lg bg-secondary object-contain p-2"
+                src={logo}
+              />
               <div className="mt-2 max-w-lg">
                 <h2 className="text-lg font-semibold">What are you working on?</h2>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">Ask for help with planning, communication, analysis, or a workplace decision.</p>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  Ask for help with planning, communication, analysis, or a workplace decision.
+                </p>
               </div>
               <div className="mt-4 grid w-full max-w-xl gap-2 sm:grid-cols-3">
                 {suggestions.map((suggestion) => (
-                  <Button className="h-auto min-h-20 whitespace-normal px-3 py-3 text-left text-xs leading-5" disabled={busy} key={suggestion} onClick={() => sendMessage({ text: suggestion })} variant="outline">
+                  <Button
+                    className="h-auto min-h-20 whitespace-normal px-3 py-3 text-left text-xs leading-5"
+                    disabled={busy}
+                    key={suggestion}
+                    onClick={() => sendMessage({ text: suggestion })}
+                    variant="outline"
+                  >
                     {suggestion}
                   </Button>
                 ))}
@@ -504,46 +677,112 @@ function WorkplaceChat() {
             </ConversationEmptyState>
           ) : (
             messages.map((message) => {
-              const text = message.parts.filter((part) => part.type === "text").map((part) => part.text).join("");
+              const text = message.parts
+                .filter((part) => part.type === "text")
+                .map((part) => part.text)
+                .join("");
               return (
                 <Message from={message.role} key={message.id}>
                   <MessageContent className="group-[.is-user]:bg-primary group-[.is-user]:text-primary-foreground">
-                    {message.parts.map((part, index) => part.type === "text" ? <MessageResponse key={`${message.id}-${index}`}>{part.text}</MessageResponse> : null)}
+                    {message.parts.map((part, index) =>
+                      part.type === "text" ? (
+                        <MessageResponse key={`${message.id}-${index}`}>
+                          {part.text}
+                        </MessageResponse>
+                      ) : null,
+                    )}
                   </MessageContent>
                   {message.role === "assistant" && text && (
                     <MessageActions>
-                      <MessageAction label="Copy response" onClick={() => navigator.clipboard.writeText(text)} tooltip="Copy"><Copy /></MessageAction>
-                      <MessageAction label="Regenerate response" onClick={() => regenerate()} tooltip="Regenerate"><RefreshCw /></MessageAction>
+                      <MessageAction
+                        label="Copy response"
+                        onClick={() => navigator.clipboard.writeText(text)}
+                        tooltip="Copy"
+                      >
+                        <Copy />
+                      </MessageAction>
+                      <MessageAction
+                        label="Regenerate response"
+                        onClick={() => regenerate()}
+                        tooltip="Regenerate"
+                      >
+                        <RefreshCw />
+                      </MessageAction>
                     </MessageActions>
                   )}
                 </Message>
               );
             })
           )}
-          {status === "submitted" && <div className="flex items-center gap-2 text-sm text-muted-foreground"><Shimmer>Thinking through your request…</Shimmer></div>}
+          {status === "submitted" && (
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Shimmer>Thinking through your request…</Shimmer>
+            </div>
+          )}
           {error && <InlineError message={getErrorMessage(error)} />}
         </ConversationContent>
         <ConversationScrollButton />
       </Conversation>
 
       <div className="border-t bg-background p-3 md:p-4">
-        <PromptInput className="mx-auto max-w-4xl" onSubmit={async ({ text }) => { if (text.trim()) await sendMessage({ text: text.trim() }); }}>
-          <PromptInputTextarea disabled={busy} placeholder="Ask a workplace question or describe a task…" />
+        <PromptInput
+          className="mx-auto max-w-4xl"
+          onSubmit={async ({ text }) => {
+            if (text.trim()) await sendMessage({ text: text.trim() });
+          }}
+        >
+          <PromptInputTextarea
+            disabled={busy}
+            placeholder="Ask a workplace question or describe a task…"
+          />
           <PromptInputFooter className="justify-end">
-            <PromptInputSubmit disabled={!busy && status === "error"} onStop={stop} status={status} />
+            <PromptInputSubmit
+              disabled={!busy && status === "error"}
+              onStop={stop}
+              status={status}
+            />
           </PromptInputFooter>
         </PromptInput>
-        <p className="mx-auto mt-2 max-w-4xl text-center text-[11px] text-muted-foreground">AI can make mistakes. Review important information.</p>
+        <p className="mx-auto mt-2 max-w-4xl text-center text-[11px] text-muted-foreground">
+          AI can make mistakes. Review important information.
+        </p>
       </div>
     </Card>
   );
 }
 
-function Field({ label, htmlFor, children }: { label: string; htmlFor: string; children: ReactNode }) {
-  return <div><Label htmlFor={htmlFor}>{label}</Label><div className="mt-2">{children}</div></div>;
+function Field({
+  label,
+  htmlFor,
+  children,
+}: {
+  label: string;
+  htmlFor: string;
+  children: ReactNode;
+}) {
+  return (
+    <div>
+      <Label htmlFor={htmlFor}>{label}</Label>
+      <div className="mt-2">{children}</div>
+    </div>
+  );
 }
 
-function OutputPanel({ title, loading, emptyIcon, emptyText, actions, children }: { title: string; loading: boolean; emptyIcon: ReactNode; emptyText: string; actions: ReactNode; children: ReactNode }) {
+function OutputPanel({
+  title,
+  loading,
+  emptyIcon,
+  emptyText,
+  actions,
+  children,
+}: {
+  title: string;
+  loading: boolean;
+  emptyIcon: ReactNode;
+  emptyText: string;
+  actions: ReactNode;
+  children: ReactNode;
+}) {
   return (
     <Card className="min-h-[520px] rounded-lg shadow-sm">
       <CardHeader className="flex-row items-center justify-between gap-4 space-y-0 border-b">
@@ -553,12 +792,18 @@ function OutputPanel({ title, loading, emptyIcon, emptyText, actions, children }
       <CardContent className="p-5 md:p-6">
         {loading ? (
           <div className="flex min-h-[380px] flex-col items-center justify-center gap-4 text-center">
-            <div className="flex size-12 items-center justify-center rounded-md bg-secondary text-primary"><WandSparkles className="animate-pulse" /></div>
+            <div className="flex size-12 items-center justify-center rounded-md bg-secondary text-primary">
+              <WandSparkles className="animate-pulse" />
+            </div>
             <Shimmer>Creating a thoughtful result…</Shimmer>
           </div>
-        ) : children ? children : (
+        ) : children ? (
+          children
+        ) : (
           <div className="flex min-h-[380px] flex-col items-center justify-center text-center">
-            <div className="flex size-12 items-center justify-center rounded-md bg-secondary text-primary">{emptyIcon}</div>
+            <div className="flex size-12 items-center justify-center rounded-md bg-secondary text-primary">
+              {emptyIcon}
+            </div>
             <p className="mt-4 max-w-xs text-sm leading-6 text-muted-foreground">{emptyText}</p>
           </div>
         )}
@@ -568,14 +813,23 @@ function OutputPanel({ title, loading, emptyIcon, emptyText, actions, children }
 }
 
 function InlineError({ message }: { message: string }) {
-  return <Alert variant="destructive"><AlertTriangle /><AlertTitle>Something went wrong</AlertTitle><AlertDescription>{message}</AlertDescription></Alert>;
+  return (
+    <Alert variant="destructive">
+      <AlertTriangle />
+      <AlertTitle>Something went wrong</AlertTitle>
+      <AlertDescription>{message}</AlertDescription>
+    </Alert>
+  );
 }
 
 function ResponsibleAI() {
   return (
     <footer className="mt-10 flex items-start gap-2 border-t py-6 text-xs leading-5 text-muted-foreground">
       <ShieldCheck className="mt-0.5 size-4 shrink-0 text-primary" />
-      <p><span className="font-semibold text-foreground">Responsible AI:</span> AI outputs may contain errors or omissions. Review and verify important details before professional use.</p>
+      <p>
+        <span className="font-semibold text-foreground">Responsible AI:</span> AI outputs may
+        contain errors or omissions. Review and verify important details before professional use.
+      </p>
     </footer>
   );
 }
