@@ -1,70 +1,126 @@
-# AI Productivity Pal
+AI Workplace Productivity Assistant
 
-Build a modern responsive SaaS web app called AI Workplace Productivity Assistant.
+Project Overview
 
-Create a clean dashboard with a dark + light pink professional colour scheme, sidebar navigation, responsive layout, cards, rounded corners and subtle animations.
+The AI Workplace Productivity Assistant is a modern, responsive SaaS-style web application designed to help professionals complete common workplace tasks using AI.
 
-Pages / Features
+The application provides tools for generating professional emails, researching and summarising information, and interacting with an AI workplace assistant. It is designed with a clean, professional interface using a light pink and dark colour scheme.
 
-1. Smart Email Generator
+Features Implemented
 
-Inputs: recipient/context, purpose, key points and tone.
+Smart Email Generator
 
-Tone options: Formal, Friendly, Persuasive.
+Generate professional workplace emails from user-provided information.
 
-Generate realistic, professional AI-written emails based on the user's inputs.
+Supports multiple tones:
 
-Make generated emails editable with Copy and Regenerate buttons.
+Formal
 
-2. AI Research Assistant
+Friendly
 
-Input a topic, article text or website URL.
+Persuasive
 
-Summarise the provided content and generate key insights, findings and practical recommendations.
+AI-generated email content can be edited before use.
 
-Show results in editable sections with Copy and Regenerate buttons.
+Copy and regenerate functionality.
 
-3. AI Workplace Chat
+AI Research Assistant
 
-Chat-style interface for workplace questions and tasks.
+Enter a research topic, article content, or website URL.
 
-Respond dynamically to user prompts with useful, contextual AI-generated responses.
+Generate summaries of provided information.
 
-Include suggested prompts.
+Identify key insights and findings.
 
-Requirements
+Provide practical recommendations.
 
-No backend, database or authentication.
+Results can be reviewed and edited.
 
-Use frontend-only functionality and AI API integration where supported by Lovable.
+AI Workplace Chatbot
 
-Do not use hardcoded generic responses; outputs should be generated from the user's actual input.
+Interactive chat interface for workplace-related questions and tasks.
 
-Include loading states, empty states and error handling.
+Responds to user prompts with AI-generated answers.
 
-Add a small Responsible AI disclaimer explaining that AI outputs may contain errors and should be reviewed before professional use.
+Includes suggested prompts to help users get started.
 
-Keep the UI polished, minimal and professional, similar to a modern SaaS productivity platform.
+User Interface
 
-Ensure the application works well on desktop, tablet and mobile.
+Modern SaaS dashboard design.
 
-This project was built with [Lovable](https://lovable.dev).
+Sidebar navigation.
 
-## Build with Lovable
+Responsive layout for desktop, tablet, and mobile devices.
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/d7e611ce-0aa1-4626-8c38-7f14570b84f0).
+Light pink and dark visual theme.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+Loading and error states.
 
-## Development
+Editable AI outputs.
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Responsible AI disclaimer reminding users to review AI-generated content.
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+Technologies and Tools Used
+
+React – Frontend application framework.
+
+TypeScript – Type-safe development.
+
+Vite – Development server and build tool.
+
+Tailwind CSS – Responsive styling and UI design.
+
+Lovable – AI-assisted application development and UI generation.
+
+AI integration – Used to generate contextual responses based on user prompts.
+
+Setup Instructions
+
+Prerequisites
+
+Make sure you have the following installed:
+
+Node.js
+
+npm
+
+Installation
+
+Clone the repository:
+
+git clone <your-github-repository-url>
+
+Navigate to the project folder:
+
+cd ai-workplace-productivity-assistant
+
+Install the project dependencies:
+
+npm install
+
+Start the development server:
+
 npm run dev
-```
+
+Open the local development URL shown in the terminal, usually:
+
+http://localhost:5173
+
+Build for Production
+
+To create a production build:
+
+npm run build
+
+To preview the production build locally:
+
+npm run preview
+
+Responsible AI
+
+AI-generated content may contain inaccuracies or incomplete information. Users should review and verify AI-generated emails, summaries, recommendations, and other outputs before using them for professional purposes.
+
+Project Purpose
+
+This project demonstrates how AI-powered productivity tools can be combined with a modern web interface to support everyday workplace communication, research, and task assistance.
+
